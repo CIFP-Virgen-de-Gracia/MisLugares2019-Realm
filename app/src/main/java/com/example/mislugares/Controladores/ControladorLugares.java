@@ -1,12 +1,12 @@
 package com.example.mislugares.Controladores;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.example.mislugares.Modelos.Lugar;
+import io.realm.Realm;
 
 import java.util.ArrayList;
 
@@ -19,6 +19,7 @@ public class ControladorLugares {
     // Hacemos un Singleton
     private static ControladorLugares instancia;
     private static Context context;
+    private Realm realm;
 
 
     private ControladorLugares() {
@@ -99,27 +100,24 @@ public class ControladorLugares {
      */
     public boolean insertarLugar(Lugar lugar) {
         // se insertan sin problemas porque lugares es clave primaria, si ya están no hace nada
-        // Abrimos la BD en modo escritura
-        ControladorBD bdLugares = new ControladorBD(context, ControladorBD.db_lugares, null, 1);
-        SQLiteDatabase bd = bdLugares.getWritableDatabase();
+        // Abrimos la instancia de REALM
+        realm = Realm.getDefaultInstance();
+        // Escribimos https://realm.io/docs/java/6.0.2/#writes
+        // O hacerlo con un hilo para hacerlo más concurrente
+
+
+        realm.beginTransaction();
         boolean sal = false;
         try {
             //Cargamos los parámetros
-            ContentValues valores = new ContentValues();
-            valores.put("nombre", lugar.getNombre());
-            valores.put("tipo", lugar.getTipo());
-            valores.put("fecha", lugar.getFecha());
-            valores.put("latitud", lugar.getLatitud());
-            valores.put("longitud", lugar.getLongitud());
-            valores.put("imagen", lugar.getImagen());
+            realm.commitTransaction();
             // insertamos en su tabla, en long tenemos el id más alto creado
-            long res = bd.insert("Lugares", null, valores);
+            realm.copyToRealm(lugar); // Copia, inserta
+            realm.commitTransaction();
             sal = true;
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             Log.d("Lugares", "Error al insertar un nuevo lugar " + ex.getMessage());
         } finally {
-            bd.close();
-            bdLugares.close();
             return sal;
         }
 
@@ -163,33 +161,24 @@ public class ControladorLugares {
      * @return número de lugares actualizados
      */
     public boolean actualizarLugar(Lugar lugar) {
-        // Abrimos la BD en modo escritura
-        ControladorBD bdLugares = new ControladorBD(context, ControladorBD.db_lugares, null, 1);
-        SQLiteDatabase bd = bdLugares.getWritableDatabase();
+        // Abrimos la instancia de REALM
+        realm = Realm.getDefaultInstance();
+        // Escribimos https://realm.io/docs/java/6.0.2/#writes
+        // O hacerlo con un hilo para hacerlo más concurrente
+
+
+        realm.beginTransaction();
         boolean sal = false;
         try {
-            // Cargamos los valores
-            ContentValues valores = new ContentValues();
-            valores.put("nombre", lugar.getNombre());
-            valores.put("tipo", lugar.getTipo());
-            valores.put("fecha", lugar.getFecha());
-            valores.put("latitud", lugar.getLatitud());
-            valores.put("longitud", lugar.getLongitud());
-            valores.put("imagen", lugar.getImagen());
-
-            // Creamos el where
-            String where = "id = ?";
-            //Cargamos los parámetros es un vector, en este caso es solo uno, pero podrían ser mas
-            String[] args = {String.valueOf(lugar.getId())};
-            // En el fondo hemos hecho where id = lugar.id
-            // Actualizamos. En res tenemos el numero de filas actualizadas por si queremos tenerlo en cuenta
-            int res = bd.update("Lugares", valores, where, args);
+            //Cargamos los parámetros
+            realm.commitTransaction();
+            // insertamos en su tabla, en long tenemos el id más alto creado
+            realm.copyToRealm(lugar); // Copia, inserta
+            realm.commitTransaction();
             sal = true;
-        } catch (SQLException ex) {
-            Log.d("Lugares", "Error al actualizar este lugar " + ex.getMessage());
+        } catch (Exception ex) {
+            Log.d("Lugares", "Error al insertar un nuevo lugar " + ex.getMessage());
         } finally {
-            bd.close();
-            bdLugares.close();
             return sal;
         }
 

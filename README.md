@@ -10,4 +10,6 @@ App con un poco de todo
 
 Es importante que gereneréis bien la clave de la API de Google Maps
 
-04/04/2020. Inición y configuración. Adaptación del proyecto [MisLugares2019](https://github.com/joseluisgs/MisLugares2019)   a REALM
+* 04/04/2020. Inición y configuración. Adaptación del proyecto [MisLugares2019](https://github.com/joseluisgs/MisLugares2019)   a REALM
+* 04/04/2020. Creación de Modelos y notación Lombok
+* 04/04/2020. 
