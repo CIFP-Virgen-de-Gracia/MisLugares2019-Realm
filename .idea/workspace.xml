@@ -18,10 +18,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff42adee-16cb-43dc-bd55-ac9c19d0a5a7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/App/MyRealmConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/App/MyRealmConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/UI/lugares/LugarDetalleFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/UI/lugares/LugarDetalleFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/androidx/appcompat/group-index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/androidx/constraintlayout/group-index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/androidx/legacy/group-index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/androidx/lifecycle/group-index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/androidx/navigation/group-index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/androidx/test/espresso/group-index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/androidx/test/ext/group-index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/android/gms/group-index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/com/google/android/material/group-index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/maven.google/master-index.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/lint-cache/sdk-registry.xml/sdk-registry.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +270,7 @@
       <workItem from="1585990945495" duration="2394000" />
       <workItem from="1585993617243" duration="66000" />
       <workItem from="1585993739662" duration="1683000" />
-      <workItem from="1585995873585" duration="9918000" />
+      <workItem from="1585995873585" duration="10053000" />
     </task>
     <task id="LOCAL-00001" summary="Actualizado README.md">
       <created>1575646542719</created>
@@ -470,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586004796964</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Refactorización y Pruebas">
+      <created>1586006251060</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1586006251060</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,10 +551,10 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="378" y="146" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.739@0.23.1280.739" timestamp="1585996061605" />
-    <state x="234" y="23" key="CommitChangelistDialog2" timestamp="1586004796690">
+    <state x="234" y="23" key="CommitChangelistDialog2" timestamp="1586006250512">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state x="234" y="23" key="CommitChangelistDialog2/0.23.1280.739@0.23.1280.739" timestamp="1586004796690" />
+    <state x="234" y="23" key="CommitChangelistDialog2/0.23.1280.739@0.23.1280.739" timestamp="1586006250512" />
     <state x="226" y="220" width="775" height="355" key="Github.ShareDialog" timestamp="1585994632480">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
@@ -568,10 +587,10 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="128" y="23" key="SettingsEditor/0.23.1280.739@0.23.1280.739" timestamp="1585994419753" />
-    <state x="240" y="132" key="Vcs.Push.Dialog.v2" timestamp="1586004798408">
+    <state x="240" y="132" key="Vcs.Push.Dialog.v2" timestamp="1586006257740">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state x="240" y="132" key="Vcs.Push.Dialog.v2/0.23.1280.739@0.23.1280.739" timestamp="1586004798408" />
+    <state x="240" y="132" key="Vcs.Push.Dialog.v2/0.23.1280.739@0.23.1280.739" timestamp="1586006257740" />
     <state x="100" y="123" width="1080" height="539" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1585991208203">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
