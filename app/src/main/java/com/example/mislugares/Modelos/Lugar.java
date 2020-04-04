@@ -13,7 +13,7 @@ import lombok.Setter;
  * Clase Lugar
  */
 
-// Voy a usar notaciones lombok
+// Voy a usar notaciones lombok, mira el Readme.
 @Data
 @Builder
 @Getter

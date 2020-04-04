@@ -24,9 +24,9 @@ import com.example.mislugares.MainActivity;
 import com.example.mislugares.Modelos.Lugar;
 import com.example.mislugares.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import io.realm.RealmResults;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import static android.app.Activity.RESULT_OK;
@@ -52,7 +52,7 @@ public class LugaresFragment extends Fragment {
     private static final int FECHA_DESC = 16;
     private int tipoFiltro = NADA;
 
-    private RealmResults<Lugar> lugares;
+    private List<Lugar> lugares = new ArrayList<>();
     private RecyclerView rv;
     private LugaresListAdapter ad;
 

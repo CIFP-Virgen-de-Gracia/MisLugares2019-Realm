@@ -14,7 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mislugares.Modelos.Lugar;
 import com.example.mislugares.R;
 import com.example.mislugares.Utilidades.Utilidades;
-import io.realm.RealmResults;
+
+import java.util.List;
 
 /**
  * Adaptador de la lista mis lugares
@@ -24,7 +25,7 @@ public class LugaresListAdapter extends RecyclerView.Adapter<LugaresListAdapter.
     private static final int VISUALIZAR = 4;
 
     // ArrayList con Lugares
-    private RealmResults<Lugar> listaLugares;
+    private List<Lugar> listaLugares;
     // Fragment Manager para trabajar con el
     private FragmentManager fm;
 
@@ -32,7 +33,7 @@ public class LugaresListAdapter extends RecyclerView.Adapter<LugaresListAdapter.
     Resources res;
 
     // Constructor
-    public LugaresListAdapter(RealmResults<Lugar> listaLugares, FragmentManager fm, Resources res) {
+    public LugaresListAdapter(List<Lugar> listaLugares, FragmentManager fm, Resources res) {
         this.listaLugares = listaLugares;
         this.fm = fm;
         this.res = res;

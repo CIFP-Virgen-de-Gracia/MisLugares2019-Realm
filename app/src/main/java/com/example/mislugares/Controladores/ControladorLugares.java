@@ -7,6 +7,8 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 import io.realm.Sort;
 
+import java.util.List;
+
 
 /**
  * Controlador de de Lugares
@@ -55,8 +57,8 @@ public class ControladorLugares {
      * @param tipoFiltro de ordenación
      * @return lista de lugares
      */
-    public RealmResults<Lugar> listarLugares(int tipoFiltro) {
-        // Abrimos la BD en Modo Lectura
+    public List<Lugar> listarLugares(int tipoFiltro) {
+        // Abrimos la BD
         realm = Realm.getDefaultInstance();
         RealmResults<Lugar> listaLugares;
         // Obtenemos la lista. No la filtro aquí, porque así me ahorro consultarla cada vez que
@@ -87,7 +89,9 @@ public class ControladorLugares {
                 break;
         }
 
-        return listaLugares;
+        return realm.copyFromRealm(listaLugares);
+
+
     }
     // Manejar un CRUD
     // https://parzibyte.me/blog/2019/02/04/tutorial-sqlite-android-crud-create-read-update-delete/
@@ -111,11 +115,11 @@ public class ControladorLugares {
         try {
             // insertamos en su tabla, en long tenemos el id más alto creado
             realm.copyToRealm(lugar); // Copia, inserta
-            realm.commitTransaction();
             sal = true;
         } catch (Exception ex) {
             Log.d("Lugares", "Error al insertar un nuevo lugar " + ex.getMessage());
         } finally {
+            realm.commitTransaction();
             return sal;
         }
 
@@ -142,6 +146,7 @@ public class ControladorLugares {
         } catch (Exception ex) {
             Log.d("Lugares", "Error al eliminar un nuevo lugar " + ex.getMessage());
         } finally {
+            realm.commitTransaction();
             return sal;
         }
 
@@ -162,11 +167,11 @@ public class ControladorLugares {
             //Cargamos los parámetros
             // insertamos en su tabla, en long tenemos el id más alto creado
             realm.copyToRealmOrUpdate(lugar);
-            realm.commitTransaction();
             sal = true;
         } catch (Exception ex) {
             Log.d("Lugares", "Error al actualizar un nuevo lugar " + ex.getMessage());
         } finally {
+            realm.commitTransaction();
             return sal;
         }
 
