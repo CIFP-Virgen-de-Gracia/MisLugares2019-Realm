@@ -24,6 +24,7 @@ import com.example.mislugares.MainActivity;
 import com.example.mislugares.Modelos.Lugar;
 import com.example.mislugares.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import io.realm.RealmResults;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -41,7 +42,17 @@ public class LugaresFragment extends Fragment {
     private static final int ACTUALIZAR = 3;
     private static final int VOZ = 10;
 
-    private ArrayList<Lugar> lugares = new ArrayList<>();
+    // Filtro
+    private static final int NADA = 10;
+    private static final int NOMBRE_ASC = 11;
+    private static final int NOMBRE_DESC = 12;
+    private static final int TIPO_ASC = 13;
+    private static final int TIPO_DESC = 14;
+    private static final int FECHA_ASC = 15;
+    private static final int FECHA_DESC = 16;
+    private int tipoFiltro = NADA;
+
+    private RealmResults<Lugar> lugares;
     private RecyclerView rv;
     private LugaresListAdapter ad;
 
@@ -145,7 +156,7 @@ public class LugaresFragment extends Fragment {
                 swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.textColor);
                 //Le pasamos el fragment manager para gestionar las transacciones necesarias
                 // Consultamos los lugares y se lo pasamos al adaptador
-                listarLugares("");
+                listarLugares();
                 swipeRefreshLayout.setRefreshing(false);
 
             }
@@ -195,10 +206,10 @@ public class LugaresFragment extends Fragment {
                 // A partir de aquí podemos crear el if todo lo complejo que queramos o irnos a otro fichero
                 // O métpdp
                 if (secuencia != null) {
-                    tipoFiltro = analizarFiltroVoz(secuencia);
+                    analizarFiltroVoz(secuencia);
                     //Log.d("Filtro", secuencia);
                     //Log.d("Filtro", tipoFiltro);
-                    this.listarLugares(tipoFiltro);
+                    this.listarLugares();
                 }
             }
 
@@ -211,45 +222,40 @@ public class LugaresFragment extends Fragment {
      * @param secuencia Sencuencia de entrada
      * @return filtro de salida
      */
-    private String analizarFiltroVoz(String secuencia) {
-        String tipoFiltro;
+    private void analizarFiltroVoz(String secuencia) {
         // Nombre
         if ((secuencia.contains("nombre")) &&
                 !((secuencia.contains("descendente") || secuencia.contains("inverso")))) {
-            tipoFiltro = "UPPER(nombre) ASC";
+            tipoFiltro = NOMBRE_ASC;
         } else if ((secuencia.contains("nombre")) &&
                 ((secuencia.contains("descendente") || secuencia.contains("inverso")))) {
-
-            tipoFiltro = "UPPER(nombre) DESC";
+            tipoFiltro = NOMBRE_DESC;
             // Fecha
         } else if ((secuencia.contains("fecha")) &&
                 !((secuencia.contains("descendente") || secuencia.contains("inverso")))) {
-            tipoFiltro = "UPPER(fecha) ASC";
+            tipoFiltro = FECHA_ASC;
         } else if ((secuencia.contains("fecha")) &&
                 ((secuencia.contains("descendente") || secuencia.contains("inverso")))) {
-            tipoFiltro = "UPPER(fecha) DESC";
-
+            tipoFiltro = FECHA_DESC;
             // Tipo
         } else if ((secuencia.contains("tipo")) &&
                 !((secuencia.contains("descendente") || secuencia.contains("inverso")))) {
-            tipoFiltro = "UPPER(tipo) ASC";
+            tipoFiltro = TIPO_ASC;
         } else if ((secuencia.contains("tipo")) &&
                 ((secuencia.contains("descendente") || secuencia.contains("inverso")))) {
-            tipoFiltro = "UPPER(tipo) DESC";
-
+            tipoFiltro = TIPO_DESC;
             // Lugar = nombre
         } else if ((secuencia.contains("lugar")) &&
                 !((secuencia.contains("descendente") || secuencia.contains("inverso")))) {
-            tipoFiltro = "UPPER(nombre) ASC";
+            tipoFiltro = NOMBRE_ASC;
         } else if ((secuencia.contains("lugar")) &&
                 ((secuencia.contains("descendente") || secuencia.contains("inverso")))) {
-            tipoFiltro = "UPPER(nombre) DESC";
+            tipoFiltro = NOMBRE_DESC;
 
             // Por defecto
         } else {
-            tipoFiltro = "UPPER(nombre) ASC";
+            tipoFiltro = NADA;
         }
-        return tipoFiltro;
     }
 
     /**
@@ -282,25 +288,29 @@ public class LugaresFragment extends Fragment {
         this.spinnerFiltro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String tipoFiltro = "";
+                tipoFiltro = NADA;
                 switch (spinnerFiltro.getSelectedItemPosition()) {
+                    case 0:
+                        tipoFiltro = NADA;
+                        break;
                     case 1:
-                        tipoFiltro = "UPPER(nombre) ASC";
+                        tipoFiltro = NOMBRE_ASC;
                         break;
                     case 2:
-                        tipoFiltro = "DATE(fecha) ASC";
+                        tipoFiltro = FECHA_ASC;
                         break;
                     case 3:
-                        tipoFiltro = "UPPER(tipo) ASC";
+                        tipoFiltro = TIPO_ASC;
                         break;
                     case 4:
-                        tipoFiltro = "nombre ASC";
+                        tipoFiltro = NOMBRE_ASC;
                         break;
                     default:
+                        tipoFiltro = NADA;
                         break;
                 }
                 // Listamos los lugares y cargamos el recycler
-                listarLugares(tipoFiltro);
+                listarLugares();
             }
 
             // Probar a quitar si puedes ;)
@@ -465,13 +475,10 @@ public class LugaresFragment extends Fragment {
 
     /**
      * Consultamos los lugares en base a un filtro
-     *
-     * @param filtro
      */
-    private void listarLugares(String filtro) {
-        lugares.clear();
+    private void listarLugares() {
         ControladorLugares c = ControladorLugares.getControlador(getContext());
-        lugares = c.listarLugares(filtro);
+        lugares = c.listarLugares(this.tipoFiltro);
         ad = new LugaresListAdapter(lugares, getFragmentManager(), getResources());
         rv.setAdapter(ad);
         // Avismos que ha cambiado

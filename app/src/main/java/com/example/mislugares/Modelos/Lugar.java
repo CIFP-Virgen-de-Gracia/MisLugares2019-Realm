@@ -32,6 +32,7 @@ public class Lugar extends RealmObject {
     private float longitud;
     private String imagen;
 
+
     // Cada vez que creemos uno, creamos la clave
     public Lugar() {
         this.id = MyRealmConfig.LugarID.incrementAndGet();

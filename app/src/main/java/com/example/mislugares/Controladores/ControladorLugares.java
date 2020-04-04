@@ -1,14 +1,11 @@
 package com.example.mislugares.Controladores;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import com.example.mislugares.Modelos.Lugar;
 import io.realm.Realm;
-
-import java.util.ArrayList;
+import io.realm.RealmResults;
+import io.realm.Sort;
 
 
 /**
@@ -20,6 +17,15 @@ public class ControladorLugares {
     private static ControladorLugares instancia;
     private static Context context;
     private Realm realm;
+
+    // Para filtrar las busquedas
+    private static final int NADA = 10;
+    private static final int NOMBRE_ASC = 11;
+    private static final int NOMBRE_DESC = 12;
+    private static final int TIPO_ASC = 13;
+    private static final int TIPO_DESC = 14;
+    private static final int FECHA_ASC = 15;
+    private static final int FECHA_DESC = 16;
 
 
     private ControladorLugares() {
@@ -46,48 +52,42 @@ public class ControladorLugares {
     /**
      * Lista todos los lugares almacenados en el sistema de almacenamiento
      *
-     * @param filtro Filtro de ordenación
+     * @param tipoFiltro de ordenación
      * @return lista de lugares
      */
-    public ArrayList<Lugar> listarLugares(String filtro) {
+    public RealmResults<Lugar> listarLugares(int tipoFiltro) {
         // Abrimos la BD en Modo Lectura
-        ArrayList<Lugar> lista = new ArrayList<Lugar>();
-        Lugar aux;
-        ControladorBD bdLugares = new ControladorBD(context, "BDLugares", null, 1);
-        SQLiteDatabase bd = bdLugares.getReadableDatabase();
-        if (bd != null) {
-            // Podemos hacer la consulta directamente o parametrizada
-            //Cursor c = bd.rawQuery("SELECT * FROM Lugares " + filtro, null);
-            // http://www.sgoliver.net/blog/bases-de-datos-en-android-iii-consultarrecuperar-registros/
-
-            /* Ejemplo de cada campo de la consulta
-            String table = "table2";
-            String[] columns = {"column1", "column3"};
-            String selection = "column3 =?";
-            String[] selectionArgs = {"apple"};
-            String groupBy = null;
-            String having = null;
-            String orderBy = "column3 DESC";
-            String limit = "10";
-
-            Cursor cursor = db.query(table, columns, selection, selectionArgs, groupBy, having, orderBy, limit);
-             */
-
-            Cursor c = bd.query("Lugares", null, null, null, null, null, filtro, null);
-            if (c.moveToFirst()) {
-                do {
-
-                    aux = new Lugar(c.getInt(0), c.getString(1),
-                            c.getString(2), c.getString(3),
-                            c.getFloat(4), c.getFloat(5), c.getString(6));
-                    lista.add(aux);
-                } while (c.moveToNext());
-            }
-            bd.close();
-            bdLugares.close();
-
+        realm = Realm.getDefaultInstance();
+        RealmResults<Lugar> listaLugares;
+        // Obtenemos la lista. No la filtro aquí, porque así me ahorro consultarla cada vez que
+        switch (tipoFiltro) {
+            case NADA:
+                listaLugares = realm.where(Lugar.class).sort("id").findAll();
+                break;
+            case NOMBRE_ASC:
+                listaLugares = realm.where(Lugar.class).sort("nombre", Sort.ASCENDING).findAll();
+                break;
+            case NOMBRE_DESC:
+                listaLugares = realm.where(Lugar.class).sort("nombre", Sort.DESCENDING).findAll();
+                break;
+            case TIPO_ASC:
+                listaLugares = realm.where(Lugar.class).sort("tipo", Sort.ASCENDING).findAll();
+                break;
+            case TIPO_DESC:
+                listaLugares = realm.where(Lugar.class).sort("tipo", Sort.DESCENDING).findAll();
+                break;
+            case FECHA_ASC:
+                listaLugares = realm.where(Lugar.class).sort("fecha", Sort.ASCENDING).findAll();
+                break;
+            case FECHA_DESC:
+                listaLugares = realm.where(Lugar.class).sort("fecha", Sort.DESCENDING).findAll();
+                break;
+            default:
+                listaLugares = realm.where(Lugar.class).sort("id").findAll();
+                break;
         }
-        return lista;
+
+        return listaLugares;
     }
     // Manejar un CRUD
     // https://parzibyte.me/blog/2019/02/04/tutorial-sqlite-android-crud-create-read-update-delete/
@@ -125,28 +125,23 @@ public class ControladorLugares {
      * Elimina un lugar del sistema de almacenamiento
      *
      * @param lugar Lugar a eliminar
-     * @return número de lugares eliminados.
+     * @return veradero si elimina
      */
     public boolean eliminarLugar(Lugar lugar) {
-        // Abrimos la BD en modo escritura
-        ControladorBD bdLugares = new ControladorBD(context, ControladorBD.db_lugares, null, 1);
-        SQLiteDatabase bd = bdLugares.getWritableDatabase();
+        // Abrimos la instancia de REALM
+        realm = Realm.getDefaultInstance();
+        // Escribimos https://realm.io/docs/java/6.0.2/#writes
+        // O hacerlo con un hilo para hacerlo más concurrente
+        realm.beginTransaction();
         boolean sal = false;
         try {
-
-            // Creamos el where
-            String where = "id = ?";
-            //Cargamos los parámetros es un vector, en este caso es solo uno, pero podrían ser mas
-            String[] args = {String.valueOf(lugar.getId())};
-            // En el fondo hemos hecho where id = lugar.id
-            // Eliminamos. En res tenemos el numero de filas eliminadas por si queremos tenerlo en cuenta
-            int res = bd.delete("Lugares", where, args);
+            // Lo buscamos (campo, valor) y lo borramos
+            Lugar l = realm.where(Lugar.class).equalTo("id", lugar.getId()).findFirst();
+            l.deleteFromRealm();
             sal = true;
-        } catch (SQLException ex) {
-            Log.d("Lugares", "Error al eliminar este lugar " + ex.getMessage());
+        } catch (Exception ex) {
+            Log.d("Lugares", "Error al eliminar un nuevo lugar " + ex.getMessage());
         } finally {
-            bd.close();
-            bdLugares.close();
             return sal;
         }
 
@@ -156,7 +151,7 @@ public class ControladorLugares {
      * Actualiza un lugar en el sistema de almacenamiento
      *
      * @param lugar Lugar a actualizar
-     * @return número de lugares actualizados
+     * @return verdadero si actualiza
      */
     public boolean actualizarLugar(Lugar lugar) {
         // Abrimos la instancia de REALM
@@ -177,53 +172,6 @@ public class ControladorLugares {
 
     }
 
-    /*
-    // Aquí insertamos una serie de lugares por defecto para tenerlos siempre disponibles
-    // Pero lo vamos a hacer con un XML, mira la clase String
-    public void insertarTiposLugares(){
-        // Si no existe la base de datos en un path, que es lo normal la primera vez
-        // Creamos cosas
-        // se insertan sin problemas porque lugares es clave primaria, si ya están no hace nada
-        // Abrimos la BD en modo escritura
-            ControladorBD bdLugares = new ControladorBD(context, ControladorBD.db_lugares, null, 1);
-            SQLiteDatabase bd = bdLugares.getWritableDatabase();
-
-            // Podríamos hacerlo así, pero podemos sufrir SQL Inyection, así que vamos a usar
-            // Consultas preparadas
-            // Además nos ahorramos equivocarnos con las comillas en las consultas
-            //bd.execSQL("INSERT INTO Tipos (tipo) VALUES ('Ciudad')");
-            //bd.execSQL("INSERT INTO Tipos (tipo) VALUES ('Pueblo')");
-
-            //Creamos el registro a insertar como objeto ContentValues
-            // Clave -> Valor
-        try{
-            ContentValues nr = new ContentValues();
-            nr.put("tipo", "Ciudad");
-            //Insertamos el registro en la base de datos
-            bd.insert("Tipos", null, nr);
-
-            // Los demas
-            nr.put("tipo", "Pueblo");
-            bd.insert("Tipos", null, nr);
-            nr.put("tipo", "Monumento");
-            bd.insert("Tipos", null, nr);
-            nr.put("tipo", "Paisaje");
-            bd.insert("Tipos", null, nr);
-            nr.put("tipo", "Playa");
-            bd.insert("Tipos", null, nr);
-            nr.put("tipo", "Montaña");
-            bd.insert("Tipos", null, nr);
-
-        }catch(SQLException ex){
-            Log.d("Lugares", "Error al cargar datos de Tipos lugares: " + ex.getMessage());
-        }finally {
-            bd.close();
-            bdLugares.close();
-        }
-
-    }
-
-     */
 
 
 }

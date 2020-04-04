@@ -20,6 +20,12 @@ android {
     }
     productFlavors {
     }
+    compileOptions {
+        // Quiero mi codigo siga JAVA 8
+        sourceCompatibility JavaVersion.VERSION_1_8 // O simplemente "8"
+        targetCompatibility JavaVersion.VERSION_1_8 // O simplemente "8"
+    }
+
 }
 
 dependencies {
