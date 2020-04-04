@@ -19,11 +19,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ff42adee-16cb-43dc-bd55-ac9c19d0a5a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/Controladores/ControladorLugares.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/Controladores/ControladorLugares.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/Modelos/Lugar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/Modelos/Lugar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/UI/lugares/LugaresFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/UI/lugares/LugaresFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/UI/lugares/LugaresListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/UI/lugares/LugaresListAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/App/MyRealmConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/App/MyRealmConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/UI/lugares/LugarDetalleFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/UI/lugares/LugarDetalleFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +258,7 @@
       <workItem from="1585990945495" duration="2394000" />
       <workItem from="1585993617243" duration="66000" />
       <workItem from="1585993739662" duration="1683000" />
-      <workItem from="1585995873585" duration="8566000" />
+      <workItem from="1585995873585" duration="9918000" />
     </task>
     <task id="LOCAL-00001" summary="Actualizado README.md">
       <created>1575646542719</created>
@@ -465,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586002534851</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Refactorización y Pruebas">
+      <created>1586004796964</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1586004796964</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +490,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Actualizado README.md" />
     <MESSAGE value="Añadido mapa" />
     <MESSAGE value=" Mapa correcto dentro del fragment" />
     <MESSAGE value="Mapa dibujado y interacción con clic" />
@@ -510,7 +514,8 @@
     <MESSAGE value="Controlador Lugar: insertar" />
     <MESSAGE value="Controlador Lugar: actualizar" />
     <MESSAGE value="Controlador Lugar: Eliminar y Listar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controlador Lugar: Eliminar y Listar" />
+    <MESSAGE value="Refactorización y Pruebas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactorización y Pruebas" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -527,10 +532,10 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="378" y="146" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.739@0.23.1280.739" timestamp="1585996061605" />
-    <state x="234" y="23" key="CommitChangelistDialog2" timestamp="1586002534473">
+    <state x="234" y="23" key="CommitChangelistDialog2" timestamp="1586004796690">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state x="234" y="23" key="CommitChangelistDialog2/0.23.1280.739@0.23.1280.739" timestamp="1586002534473" />
+    <state x="234" y="23" key="CommitChangelistDialog2/0.23.1280.739@0.23.1280.739" timestamp="1586004796690" />
     <state x="226" y="220" width="775" height="355" key="Github.ShareDialog" timestamp="1585994632480">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
@@ -539,22 +544,22 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="305" y="106" key="Github.UntrackedFilesDialog/0.23.1280.739@0.23.1280.739" timestamp="1585994644850" />
-    <state width="1238" height="139" key="GridCell.Tab.0.bottom" timestamp="1586004586680">
+    <state width="1238" height="147" key="GridCell.Tab.0.bottom" timestamp="1586005779132">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state width="1238" height="139" key="GridCell.Tab.0.bottom/0.23.1280.739@0.23.1280.739" timestamp="1586004586680" />
-    <state width="1238" height="139" key="GridCell.Tab.0.center" timestamp="1586004586680">
+    <state width="1238" height="147" key="GridCell.Tab.0.bottom/0.23.1280.739@0.23.1280.739" timestamp="1586005779132" />
+    <state width="1238" height="147" key="GridCell.Tab.0.center" timestamp="1586005779131">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state width="1238" height="139" key="GridCell.Tab.0.center/0.23.1280.739@0.23.1280.739" timestamp="1586004586680" />
-    <state width="1238" height="139" key="GridCell.Tab.0.left" timestamp="1586004586679">
+    <state width="1238" height="147" key="GridCell.Tab.0.center/0.23.1280.739@0.23.1280.739" timestamp="1586005779131" />
+    <state width="1238" height="147" key="GridCell.Tab.0.left" timestamp="1586005779130">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state width="1238" height="139" key="GridCell.Tab.0.left/0.23.1280.739@0.23.1280.739" timestamp="1586004586679" />
-    <state width="1238" height="139" key="GridCell.Tab.0.right" timestamp="1586004586680">
+    <state width="1238" height="147" key="GridCell.Tab.0.left/0.23.1280.739@0.23.1280.739" timestamp="1586005779130" />
+    <state width="1238" height="147" key="GridCell.Tab.0.right" timestamp="1586005779131">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state width="1238" height="139" key="GridCell.Tab.0.right/0.23.1280.739@0.23.1280.739" timestamp="1586004586680" />
+    <state width="1238" height="147" key="GridCell.Tab.0.right/0.23.1280.739@0.23.1280.739" timestamp="1586005779131" />
     <state x="228" y="142" key="IDE.errors.dialog" timestamp="1585993886225">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
@@ -563,10 +568,10 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="128" y="23" key="SettingsEditor/0.23.1280.739@0.23.1280.739" timestamp="1585994419753" />
-    <state x="240" y="132" key="Vcs.Push.Dialog.v2" timestamp="1586002536342">
+    <state x="240" y="132" key="Vcs.Push.Dialog.v2" timestamp="1586004798408">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state x="240" y="132" key="Vcs.Push.Dialog.v2/0.23.1280.739@0.23.1280.739" timestamp="1586002536342" />
+    <state x="240" y="132" key="Vcs.Push.Dialog.v2/0.23.1280.739@0.23.1280.739" timestamp="1586004798408" />
     <state x="100" y="123" width="1080" height="539" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1585991208203">
       <screen x="0" y="23" width="1280" height="739" />
     </state>

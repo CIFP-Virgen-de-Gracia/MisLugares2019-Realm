@@ -29,6 +29,7 @@ public class MyRealmConfig extends Application {
         //Para tener el id siempre en linea
         LugarID = getIdByTable(realm, Lugar.class);
 
+
         // La cerramos
         realm.close();
 
@@ -48,6 +49,9 @@ public class MyRealmConfig extends Application {
                 //.encryptionKey(key) // Encruptada
                 .build();
         Realm.setDefaultConfiguration(realmConfiguration);
+
+        // La boro todo lo que tenga para pruebas
+        //Realm.deleteRealm(realmConfiguration);
     }
 
     // Para simular y crear la llaves autonumericas, el incremento de estas.

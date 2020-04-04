@@ -486,6 +486,21 @@ public class LugarDetalleFragment extends Fragment implements OnMapReadyCallback
                                     lugar.setLatitud((float) posicion.latitude);
                                     lugar.setLongitud((float) posicion.longitude);
                                     lugar.setImagen(Utilidades.bitmapToBase64(imagen));
+
+                                    // Voy a usar el patron builder para que lo aprendas, pues está implementado
+                                    // con Lombok en el modelo usando @builder
+                                    // Por si algún día quieres hacer un mapeo o un DTO.
+                                    /*
+                                    Lugar lugarActualizar = Lugar.builder()
+                                            .id(lugar.getId())
+                                            .nombre(etNombre.getEditText().getText().toString())
+                                            .tipo(spinnerLugarDetalleTipo.getSelectedItem().toString())
+                                            .fecha(tvFecha.getText().toString())
+                                            .latitud((float) posicion.latitude)
+                                            .longitud((float) posicion.longitude)
+                                            .imagen(Utilidades.bitmapToBase64(imagen))
+                                            .build();
+                                    */
                                     ControladorLugares c = ControladorLugares.getControlador(getContext());
                                     if (c.actualizarLugar(lugar)) {
                                         Snackbar.make(getView(), "¡Lugar actualizado con éxito!", Snackbar.LENGTH_LONG).show();
