@@ -259,7 +259,7 @@
       <workItem from="1585990945495" duration="2394000" />
       <workItem from="1585993617243" duration="66000" />
       <workItem from="1585993739662" duration="1683000" />
-      <workItem from="1585995873585" duration="3378000" />
+      <workItem from="1585995873585" duration="3653000" />
     </task>
     <task id="LOCAL-00001" summary="Actualizado README.md">
       <created>1575646542719</created>
@@ -443,7 +443,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585997344899</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Controlador Lugar: insertar">
+      <created>1585999577617</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1585999577617</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,7 +492,8 @@
     <MESSAGE value="Comentarios y Jdoc: generado JAVADOC" />
     <MESSAGE value="Initial commit - Real Confg" />
     <MESSAGE value="Modelo Lugar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modelo Lugar" />
+    <MESSAGE value="Controlador Lugar: insertar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Controlador Lugar: insertar" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -502,10 +510,10 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="378" y="146" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.739@0.23.1280.739" timestamp="1585996061605" />
-    <state x="234" y="23" key="CommitChangelistDialog2" timestamp="1585997344429">
+    <state x="234" y="23" key="CommitChangelistDialog2" timestamp="1585999577104">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state x="234" y="23" key="CommitChangelistDialog2/0.23.1280.739@0.23.1280.739" timestamp="1585997344429" />
+    <state x="234" y="23" key="CommitChangelistDialog2/0.23.1280.739@0.23.1280.739" timestamp="1585999577104" />
     <state x="226" y="220" width="775" height="355" key="Github.ShareDialog" timestamp="1585994632480">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
@@ -514,6 +522,22 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="305" y="106" key="Github.UntrackedFilesDialog/0.23.1280.739@0.23.1280.739" timestamp="1585994644850" />
+    <state width="1238" height="185" key="GridCell.Tab.0.bottom" timestamp="1585999782360">
+      <screen x="0" y="23" width="1280" height="739" />
+    </state>
+    <state width="1238" height="185" key="GridCell.Tab.0.bottom/0.23.1280.739@0.23.1280.739" timestamp="1585999782360" />
+    <state width="1238" height="185" key="GridCell.Tab.0.center" timestamp="1585999782358">
+      <screen x="0" y="23" width="1280" height="739" />
+    </state>
+    <state width="1238" height="185" key="GridCell.Tab.0.center/0.23.1280.739@0.23.1280.739" timestamp="1585999782358" />
+    <state width="1238" height="185" key="GridCell.Tab.0.left" timestamp="1585999782358">
+      <screen x="0" y="23" width="1280" height="739" />
+    </state>
+    <state width="1238" height="185" key="GridCell.Tab.0.left/0.23.1280.739@0.23.1280.739" timestamp="1585999782358" />
+    <state width="1238" height="185" key="GridCell.Tab.0.right" timestamp="1585999782359">
+      <screen x="0" y="23" width="1280" height="739" />
+    </state>
+    <state width="1238" height="185" key="GridCell.Tab.0.right/0.23.1280.739@0.23.1280.739" timestamp="1585999782359" />
     <state x="228" y="142" key="IDE.errors.dialog" timestamp="1585993886225">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
@@ -522,10 +546,10 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="128" y="23" key="SettingsEditor/0.23.1280.739@0.23.1280.739" timestamp="1585994419753" />
-    <state x="240" y="132" key="Vcs.Push.Dialog.v2" timestamp="1585997346868">
+    <state x="240" y="132" key="Vcs.Push.Dialog.v2" timestamp="1585999579114">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state x="240" y="132" key="Vcs.Push.Dialog.v2/0.23.1280.739@0.23.1280.739" timestamp="1585997346868" />
+    <state x="240" y="132" key="Vcs.Push.Dialog.v2/0.23.1280.739@0.23.1280.739" timestamp="1585999579114" />
     <state x="100" y="123" width="1080" height="539" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1585991208203">
       <screen x="0" y="23" width="1280" height="739" />
     </state>

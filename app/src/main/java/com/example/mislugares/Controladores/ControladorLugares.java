@@ -109,8 +109,6 @@ public class ControladorLugares {
         realm.beginTransaction();
         boolean sal = false;
         try {
-            //Cargamos los parámetros
-            realm.commitTransaction();
             // insertamos en su tabla, en long tenemos el id más alto creado
             realm.copyToRealm(lugar); // Copia, inserta
             realm.commitTransaction();
@@ -163,21 +161,16 @@ public class ControladorLugares {
     public boolean actualizarLugar(Lugar lugar) {
         // Abrimos la instancia de REALM
         realm = Realm.getDefaultInstance();
-        // Escribimos https://realm.io/docs/java/6.0.2/#writes
-        // O hacerlo con un hilo para hacerlo más concurrente
-
-
         realm.beginTransaction();
         boolean sal = false;
         try {
             //Cargamos los parámetros
-            realm.commitTransaction();
             // insertamos en su tabla, en long tenemos el id más alto creado
-            realm.copyToRealm(lugar); // Copia, inserta
+            realm.copyToRealmOrUpdate(lugar);
             realm.commitTransaction();
             sal = true;
         } catch (Exception ex) {
-            Log.d("Lugares", "Error al insertar un nuevo lugar " + ex.getMessage());
+            Log.d("Lugares", "Error al actualizar un nuevo lugar " + ex.getMessage());
         } finally {
             return sal;
         }

@@ -7,7 +7,6 @@ import io.realm.RealmConfiguration;
 import io.realm.RealmObject;
 import io.realm.RealmResults;
 
-import java.security.SecureRandom;
 import java.util.concurrent.atomic.AtomicLong;
 
 // Esta clase, es una clase que se carga al comienzo de la palicación y con ella
@@ -39,14 +38,14 @@ public class MyRealmConfig extends Application {
     // Para cofigurar la base de datos a nuestra manera
     private void initRealm() {
         // Podemos incluso cifrar el fichero
-        byte[] key = new byte[64];
-        new SecureRandom().nextBytes(key);
+        //byte[] key = new byte[64];
+        //new SecureRandom().nextBytes(key);
 
         Realm.init(getApplicationContext());
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
                 .schemaVersion(1) // Versión de esquema estamos trabajando, si lo cambiamos, debemos incrementar
                 .deleteRealmIfMigrationNeeded() // Podemos borrar los datos que ya haya si cambiamos el esquema
-                .encryptionKey(key) // Encruptada
+                //.encryptionKey(key) // Encruptada
                 .build();
         Realm.setDefaultConfiguration(realmConfiguration);
     }
