@@ -19,13 +19,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff42adee-16cb-43dc-bd55-ac9c19d0a5a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_projectlombok_lombok_1_18_12_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/App/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/App/MyRealmConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/Modelos/Lugar.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/mislugares/Modelos/Lugar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +261,7 @@
       <workItem from="1585990945495" duration="2394000" />
       <workItem from="1585993617243" duration="66000" />
       <workItem from="1585993739662" duration="1683000" />
-      <workItem from="1585995873585" duration="120000" />
+      <workItem from="1585995873585" duration="1288000" />
     </task>
     <task id="LOCAL-00001" summary="Actualizado README.md">
       <created>1575646542719</created>
@@ -432,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576862286517</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Initial commit - Real Confg">
+      <created>1585996234602</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1585996234602</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,7 +478,10 @@
     <MESSAGE value="Comentarios y Jdoc: Noticias" />
     <MESSAGE value="Comentarios y Jdoc: Lugares" />
     <MESSAGE value="Comentarios y Jdoc: generado JAVADOC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comentarios y Jdoc: generado JAVADOC" />
+    <MESSAGE value="Initial commit - Real Confg" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit - Real Confg" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="240" y="58" key="#Notifications" timestamp="1585994580972">
@@ -487,6 +496,10 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="378" y="146" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.739@0.23.1280.739" timestamp="1585996061605" />
+    <state x="234" y="23" key="CommitChangelistDialog2" timestamp="1585996233682">
+      <screen x="0" y="23" width="1280" height="739" />
+    </state>
+    <state x="234" y="23" key="CommitChangelistDialog2/0.23.1280.739@0.23.1280.739" timestamp="1585996233682" />
     <state x="226" y="220" width="775" height="355" key="Github.ShareDialog" timestamp="1585994632480">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
@@ -503,6 +516,10 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="128" y="23" key="SettingsEditor/0.23.1280.739@0.23.1280.739" timestamp="1585994419753" />
+    <state x="240" y="132" key="Vcs.Push.Dialog.v2" timestamp="1585996238267">
+      <screen x="0" y="23" width="1280" height="739" />
+    </state>
+    <state x="240" y="132" key="Vcs.Push.Dialog.v2/0.23.1280.739@0.23.1280.739" timestamp="1585996238267" />
     <state x="100" y="123" width="1080" height="539" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1585991208203">
       <screen x="0" y="23" width="1280" height="739" />
     </state>

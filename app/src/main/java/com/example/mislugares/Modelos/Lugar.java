@@ -1,19 +1,40 @@
 package com.example.mislugares.Modelos;
 
+import com.example.mislugares.App.MyRealmConfig;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
+import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Clase Lugar
  */
-public class Lugar {
+
+// Voy a usar notaciones lombok
+@Data
+@Builder
+@Getter
+@Setter
+public class Lugar extends RealmObject {
+
+    @PrimaryKey  // Clave primaria
     private long id;
+    @Required // Campo requerido
     private String nombre;
+    @Required
     private String tipo;
+    @Required
     private String fecha;
     private float latitud;
     private float longitud;
     private String imagen;
 
+    // Cada vez que creemos uno, creamos la clave
     public Lugar() {
-
+        this.id = MyRealmConfig.LugarID.incrementAndGet();
     }
 
     /**
@@ -28,7 +49,7 @@ public class Lugar {
      * @param imagen   Imagen de Lugar
      */
     public Lugar(long id, String nombre, String tipo, String fecha, float latitud, float longitud, String imagen) {
-        this.id = id;
+        this.id = MyRealmConfig.LugarID.incrementAndGet();
         this.nombre = nombre;
         this.tipo = tipo;
         this.fecha = fecha;
@@ -41,55 +62,4 @@ public class Lugar {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public float getLatitud() {
-        return latitud;
-    }
-
-    public void setLatitud(float latitud) {
-        this.latitud = latitud;
-    }
-
-    public float getLongitud() {
-        return longitud;
-    }
-
-    public void setLongitud(float longitud) {
-        this.longitud = longitud;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
 }

@@ -6,6 +6,7 @@ App con un poco de todo
 * Mapas
 * Camaras
 * Almacenamiento con con base de datos REAM y no SQLLite, ver otra versión. https://realm.io/docs/
+* Lombok para notaciones: https://projectlombok.org/features/all
 
 Es importante que gereneréis bien la clave de la API de Google Maps
 
