@@ -18,7 +18,15 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff42adee-16cb-43dc-bd55-ac9c19d0a5a7" name="Default Changelist" comment="" />
+    <list default="true" id="ff42adee-16cb-43dc-bd55-ac9c19d0a5a7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_projectlombok_lombok_1_18_12_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,6 +109,13 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1Uc8AOuYA1dImlorUgyigt7Cr66" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -246,7 +261,8 @@
       <workItem from="1582797510939" duration="1000" />
       <workItem from="1585990945495" duration="2394000" />
       <workItem from="1585993617243" duration="66000" />
-      <workItem from="1585993739662" duration="838000" />
+      <workItem from="1585993739662" duration="1683000" />
+      <workItem from="1585995873585" duration="120000" />
     </task>
     <task id="LOCAL-00001" summary="Actualizado README.md">
       <created>1575646542719</created>
@@ -463,10 +479,22 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="240" y="58" key="#Notifications/0.23.1280.739@0.23.1280.739" timestamp="1585994580972" />
-    <state x="226" y="220" width="775" height="355" key="Github.ShareDialog" timestamp="1585994569071">
+    <state x="349" y="112" key="#app" timestamp="1585995956769">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state x="226" y="220" width="775" height="355" key="Github.ShareDialog/0.23.1280.739@0.23.1280.739" timestamp="1585994569071" />
+    <state x="349" y="112" key="#app/0.23.1280.739@0.23.1280.739" timestamp="1585995956769" />
+    <state x="378" y="146" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585996061605">
+      <screen x="0" y="23" width="1280" height="739" />
+    </state>
+    <state x="378" y="146" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.739@0.23.1280.739" timestamp="1585996061605" />
+    <state x="226" y="220" width="775" height="355" key="Github.ShareDialog" timestamp="1585994632480">
+      <screen x="0" y="23" width="1280" height="739" />
+    </state>
+    <state x="226" y="220" width="775" height="355" key="Github.ShareDialog/0.23.1280.739@0.23.1280.739" timestamp="1585994632480" />
+    <state x="305" y="106" key="Github.UntrackedFilesDialog" timestamp="1585994644850">
+      <screen x="0" y="23" width="1280" height="739" />
+    </state>
+    <state x="305" y="106" key="Github.UntrackedFilesDialog/0.23.1280.739@0.23.1280.739" timestamp="1585994644850" />
     <state x="228" y="142" key="IDE.errors.dialog" timestamp="1585993886225">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
@@ -479,9 +507,9 @@
       <screen x="0" y="23" width="1280" height="739" />
     </state>
     <state x="100" y="123" width="1080" height="539" key="com.android.tools.idea.avdmanager.AvdListDialog/0.23.1280.739@0.23.1280.739" timestamp="1585991208203" />
-    <state x="319" y="205" key="com.intellij.ide.util.TipDialog" timestamp="1585993740688">
+    <state x="319" y="205" key="com.intellij.ide.util.TipDialog" timestamp="1585995873827">
       <screen x="0" y="23" width="1280" height="739" />
     </state>
-    <state x="319" y="205" key="com.intellij.ide.util.TipDialog/0.23.1280.739@0.23.1280.739" timestamp="1585993740688" />
+    <state x="319" y="205" key="com.intellij.ide.util.TipDialog/0.23.1280.739@0.23.1280.739" timestamp="1585995873827" />
   </component>
 </project>
