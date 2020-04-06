@@ -2,6 +2,7 @@ package com.example.mislugares.UI.noticias;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.*;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -39,7 +40,7 @@ public class NoticiasFragment extends Fragment {
     private Paint p = new Paint();
 
     // Dirección del RSS
-    private String direccionRSS = "http://ep00.epimg.net/rss/tags/ultimas_noticias.xml";
+    private String direccionRSS = "http://ep00.epimg.net/rss/tags/ultimas_noticias.xml"; // Por defecto
 
 
     public View onCreateView(LayoutInflater inflater,
@@ -54,6 +55,9 @@ public class NoticiasFragment extends Fragment {
 
         // Obtenemos los elementos de la interfaz
         //iniciarComponentesIU();
+
+        // Leemos de las prefrenecias el RSS
+        preferenciasRSS();
 
         // Activamos la acción Swipe Reccargar
         iniciarSwipeRecarga();
@@ -77,6 +81,17 @@ public class NoticiasFragment extends Fragment {
         // Elementos de la interfaz
         actualizarInterfaz();
         //Log.d("Noticias","Actualizar Interfaz OK");
+    }
+
+    /**
+     * Lectura de las prererencias
+     */
+    private void preferenciasRSS() {
+        // Leemos las preferencias que hay almacenadas
+        SharedPreferences prefs =
+                getActivity().getSharedPreferences("MisLugares", Context.MODE_PRIVATE);
+
+        this.direccionRSS = prefs.getString("direccionRSS", "http://ep00.epimg.net/rss/tags/ultimas_noticias.xml");
     }
 
     /**

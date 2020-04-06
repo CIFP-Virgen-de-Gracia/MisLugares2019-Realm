@@ -1,6 +1,6 @@
 package com.example.mislugares.Modelos;
 
-import com.example.mislugares.App.MyRealmConfig;
+import com.example.mislugares.App.MyConfig;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
@@ -35,7 +35,7 @@ public class Lugar extends RealmObject {
 
     // Cada vez que creemos uno, creamos la clave
     public Lugar() {
-        this.id = MyRealmConfig.LugarID.incrementAndGet();
+        this.id = MyConfig.LugarID.incrementAndGet();
     }
 
     /**
@@ -50,7 +50,7 @@ public class Lugar extends RealmObject {
      * @param imagen   Imagen de Lugar
      */
     public Lugar(long id, String nombre, String tipo, String fecha, float latitud, float longitud, String imagen) {
-        this.id = MyRealmConfig.LugarID.incrementAndGet();
+        this.id = MyConfig.LugarID.incrementAndGet();
         this.nombre = nombre;
         this.tipo = tipo;
         this.fecha = fecha;
